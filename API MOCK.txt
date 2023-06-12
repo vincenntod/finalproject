@@ -1,0 +1,31 @@
+API MOCK : 
+
+ACCOUNT
+GET GetDataUser: https://9b1a1e2f-0820-44c1-8676-b5e005d36acc.mock.pstmn.io/data-user
+GET GetDataUserById: https://9b1a1e2f-0820-44c1-8676-b5e005d36acc.mock.pstmn.io/data-user/:id
+POST CreateAccount: https://9b1a1e2f-0820-44c1-8676-b5e005d36acc.mock.pstmn.io/create-user
+PUT EditDataUser: https://9b1a1e2f-0820-44c1-8676-b5e005d36acc.mock.pstmn.io/data-user/:id
+DELETE DeleteDataUser: https://9b1a1e2f-0820-44c1-8676-b5e005d36acc.mock.pstmn.io/data-user/:id
+
+
+TRANSACTION
+GET GetAllTransactions : https://9b1a1e2f-0820-44c1-8676-b5e005d36acc.mock.pstmn.io/get-transactions
+GET GetTransactionByStatus : https://9b1a1e2f-0820-44c1-8676-b5e005d36acc.mock.pstmn.io/get-transactions/:status
+
+Database: 
+
+Account
+	id       int    `json:"id"` PRIMARY_KEY AUTO_INCREMENT
+	name     string `json:"username"` UNIQUE
+	phone    string `json:"phone"`
+	role     string `json:"role"`
+	password string `json:"password"`
+
+
+Transaction
+	id        int       `json:"id"` PRIMARY_KEY AUTO_INCREMENT
+	size      int       `json:"size"`
+	page      int       `json:"page"`
+	status    string    `json:"status"`
+	start_date time.Time `json:"start_date"` CURRENT_TIMESTAMP
+	end_date   time.Time `json:"end_date"` CURRENT_TIMESTAMP
