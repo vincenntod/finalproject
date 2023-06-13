@@ -24,12 +24,27 @@ type Account struct {
 var JWT_KEY = []byte("dbceria")
 
 type Transaction struct {
-	Id        int       `json:"id"`
-	OdaNumber int       `json:"oda_number"`
-	Status    string    `json:"status"`
-	Price     float32   `json:"price"`
-	TotalData int       `json:"total_data"`
+	Id 	  int       `json:"id"`
+	OdaNumber string `json:"oda_number"`
+	BankAccountNo string `json:"bank_account_no"`
+	BillingCycleDate time.Time `json:"billing_cycle_date"`
+	PaymentDueDate time.Time `json:"payment_due_date"`
+	OverflowAmount float32 `json:"overflow_amount"`
+	BillAmount float32 `json:"bill_amount"`
+	PrincipalAmount float32 `json:"principal_amount"`
+	InterestAmount float32 `json:"interest_amount"`
+	TotalFeeAmount float32 `json:"total_fee_amount"`
+	Status string `json:"status"`
+	PaymentMethod string `json:"payment_method"`
+	AutoDebetCounter int `json:"auto_debet_counter"`
 	CreatedAt time.Time `json:"created_at"`
+	UpdatedAt time.Time `json:"updated_at"`
+	IsHold bool `json:"is_hold"`
+	IsFstlPending bool `json:"is_fstl_pending"`
+	IsHstlPending bool `json:"is_hstl_pending"`
+	IsLaaPositif bool `json:"is_laa_positif"`
+	PaumentAmount float32 `json:"paument_amount"`
+
 }
 type JWT struct {
 	Id   int    `json:"id"`
@@ -151,10 +166,18 @@ func GetAllTransactions(c *gin.Context) {
 	end := c.Param("end")
 	page, _ := strconv.Atoi(c.DefaultQuery("page", id))
 	pageSize, _ := strconv.Atoi(c.DefaultQuery("page_size", end))
+	if err := DB.Where("id = ?", id).Find(&transactions).Error; err != nil {
+		c.JSON(500, gin.H{"message": "Error"})
+		return
+	}
 
 	DB.Model(&transactions).Count(&count)
 	DB.Offset((page - 1) * pageSize).Limit(pageSize).Find(&transactions)
-	c.JSON(200, gin.H{"message": &transactions})
+	if err := DB.Offset((page - 1) * pageSize).Limit(pageSize).Find(&transactions).Error; err != nil {
+		c.JSON(500, gin.H{"message": "Error"})
+		return
+	}
+	c.JSON(200, gin.H{"message": &transactions, "Jumlah All Page": count})
 }
 func GetTransactionByStatus(c *gin.Context) {
 	var transactions []Transaction
@@ -215,7 +238,8 @@ func MiddlewareAdmin(c *gin.Context) {
 		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
 			return nil, fmt.Errorf("unexpected signing method : %v", token.Header["alg"])
 		}
-		return JWT_KEY, nil
+
+		return JWT_KEY, err
 	})
 
 	if claims, ok := token.Claims.(jwt.MapClaims); ok && token.Valid {
