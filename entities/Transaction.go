@@ -1,6 +1,7 @@
 package entities
 
 import "time"
+
 type Transaction struct {
 	Id        int       `json:"id"`
 	OdaNumber int       `json:"oda_number"`

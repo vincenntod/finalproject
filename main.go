@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strconv"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -145,12 +146,14 @@ func CreateAccount(c *gin.Context) {
 }
 func GetAllTransactions(c *gin.Context) {
 	var transactions []Transaction
-	if err := DB.Find(&transactions).Error; err != nil {
-		if err != nil {
-			c.JSON(500, gin.H{"message": "Error"})
-			return
-		}
-	}
+	var count int64
+	id := c.Param("id")
+	end := c.Param("end")
+	page, _ := strconv.Atoi(c.DefaultQuery("page", id))
+	pageSize, _ := strconv.Atoi(c.DefaultQuery("page_size", end))
+
+	DB.Model(&transactions).Count(&count)
+	DB.Offset((page - 1) * pageSize).Limit(pageSize).Find(&transactions)
 	c.JSON(200, gin.H{"message": &transactions})
 }
 func GetTransactionByStatus(c *gin.Context) {
@@ -163,6 +166,7 @@ func GetTransactionByStatus(c *gin.Context) {
 	}
 	c.JSON(200, gin.H{"message": &transactions})
 }
+
 func Login(c *gin.Context) {
 	var account Account
 
@@ -242,7 +246,7 @@ func main() {
 		Admin.PUT("/data-user/:id", EditDataUser)
 		Admin.DELETE("/data-user/:id", DeleteDataUser)
 
-		Admin.GET("/get-transactions", GetAllTransactions)
+		Admin.GET("/get-transaction/:id/:end", GetAllTransactions)
 		Admin.GET("/get-transactions/:status", GetTransactionByStatus)
 		Admin.GET("/logout", Logout)
 	}
