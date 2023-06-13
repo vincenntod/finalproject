@@ -43,7 +43,7 @@ type Transaction struct {
 	IsFstlPending bool `json:"is_fstl_pending"`
 	IsHstlPending bool `json:"is_hstl_pending"`
 	IsLaaPositif bool `json:"is_laa_positif"`
-	PaumentAmount float32 `json:"paument_amount"`
+	PaymentAmount float32 `json:"payment_amount"`
 
 }
 type JWT struct {
