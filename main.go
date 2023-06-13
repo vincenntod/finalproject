@@ -159,7 +159,17 @@ func CreateAccount(c *gin.Context) {
 		"error":   err,
 		"data":    &account})
 }
+
 func GetAllTransactions(c *gin.Context) {
+	var transactions []Transaction
+	if err := DB.Find(&transactions).Error; err != nil {
+		c.JSON(500, gin.H{"message": "Error"})
+		return
+	}
+	c.JSON(200, gin.H{"message": &transactions})
+}
+
+func GetAllTransactionsByParam(c *gin.Context) {
 	var transactions []Transaction
 	var count int64
 	id := c.Param("id")
@@ -270,8 +280,9 @@ func main() {
 		Admin.PUT("/data-user/:id", EditDataUser)
 		Admin.DELETE("/data-user/:id", DeleteDataUser)
 
-		Admin.GET("/get-transaction/:id", GetAllTransactions)
-		Admin.GET("/get-transaction-page/:id/:end", GetAllTransactions)
+		Admin.GET("/get-transactions", GetAllTransactions)
+		Admin.GET("/get-transaction/:id", GetAllTransactionsByParam)
+		Admin.GET("/get-transaction-page/:id/:end", GetAllTransactionsByParam)
 		Admin.GET("/get-transactions/:status", GetTransactionByStatus)
 		Admin.GET("/logout", Logout)
 	}
