@@ -587,11 +587,179 @@
 				},
 				{
 					"name": "ExportCSV",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\":\"pending\",\r\n    \"date\" : \"13-06-2023\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://2d876db7-7486-40dc-8f9a-c5798fd930e6.mock.pstmn.io/api/export-csv",
+							"protocol": "https",
+							"host": [
+								"2d876db7-7486-40dc-8f9a-c5798fd930e6",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"api",
+								"export-csv"
+							]
+						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "ExportByPending",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\":\"pending\",\r\n    \"date\" : \"13-06-2023\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://2d876db7-7486-40dc-8f9a-c5798fd930e6.mock.pstmn.io/api/export-csv",
+									"protocol": "https",
+									"host": [
+										"2d876db7-7486-40dc-8f9a-c5798fd930e6",
+										"mock",
+										"pstmn",
+										"io"
+									],
+									"path": [
+										"api",
+										"export-csv"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Disposition",
+									"value": "attachment;filename=transaction-export.csv",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/csv",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "id,oda_number,status,total_data,created_at\r\n1,123412341234,pending,17000,12,2023-06-09 07:51:14\r\n2,2023-06-09 07:51:00,pending,14000,12,2023-06-09 07:50:14\r\n3,123412341234,pending,16000,12,2023-06-09 06:51:14\r\n4,123412341234,pending,19000,12,2023-06-09 05:51:14"
+						},
+						{
+							"name": "ExportCSVBySucces",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\":\"failed\",\r\n    \"date\" : \"13-06-2023\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://2d876db7-7486-40dc-8f9a-c5798fd930e6.mock.pstmn.io/api/export-csv",
+									"protocol": "https",
+									"host": [
+										"2d876db7-7486-40dc-8f9a-c5798fd930e6",
+										"mock",
+										"pstmn",
+										"io"
+									],
+									"path": [
+										"api",
+										"export-csv"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Disposition",
+									"value": "attachment;filename=transaction-export.csv",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/csv",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "id,oda_number,status,total_data,created_at\r\n1,123412341234,failed,17000,12,2023-06-09 07:51:14\r\n2,2023-06-09 07:51:00,failed,14000,12,2023-06-09 07:50:14\r\n3,123412341234,failed,16000,12,2023-06-09 06:51:14\r\n4,123412341234,failed,19000,12,2023-06-09 05:51:14"
+						},
+						{
+							"name": "ExportCSVByFailed",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\":\"succes\",\r\n    \"date\" : \"13-06-2023\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://2d876db7-7486-40dc-8f9a-c5798fd930e6.mock.pstmn.io/api/export-csv",
+									"protocol": "https",
+									"host": [
+										"2d876db7-7486-40dc-8f9a-c5798fd930e6",
+										"mock",
+										"pstmn",
+										"io"
+									],
+									"path": [
+										"api",
+										"export-csv"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Disposition",
+									"value": "attachment;filename=transaction-export.csv",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/csv",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "id,oda_number,status,total_data,created_at\r\n1,123412341234,success,17000,12,2023-06-09 07:51:14\r\n2,2023-06-09 07:51:00,success,14000,12,2023-06-09 07:50:14\r\n3,123412341234,success,16000,12,2023-06-09 06:51:14\r\n4,123412341234,success,19000,12,2023-06-09 05:51:14"
+						}
+					]
 				}
 			]
 		},
@@ -624,7 +792,7 @@
 					},
 					"response": [
 						{
-							"name": "New Request",
+							"name": "LoginBerhasil",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
@@ -657,19 +825,121 @@
 								},
 								{
 									"key": "Set-Cookie",
-									"value": "gin_cookie=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwibmFtZSI6ImNhdGhleiIsInJvbGUiOiJhZG1pbiIsImlzcyI6ImdvbGFuZyIsImV4cCI6MTY4NjU0NzE1OX0.NwoIKnGY9cP54VImZ8GGEM2wQrJIzExUebQ9cGb1Ch4; Path=/; Domain=localhost; Max-Age=3600; HttpOnly"
+									"value": "gin_cookie=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwibmFtZSI6ImNhdGhleiIsInJvbGUiOiJhZG1pbiIsImlzcyI6ImdvbGFuZyIsImV4cCI6MTY4NjYzNTg3OH0.uddoP_MaXDJi2ue44gHswj74kNiQrU5cggAPHxA33fM; Path=/; Domain=localhost; Max-Age=3600; HttpOnly"
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 12 Jun 2023 04:49:19 GMT"
+									"value": "Tue, 13 Jun 2023 04:27:58 GMT"
 								},
 								{
 									"key": "Content-Length",
-									"value": "28"
+									"value": "308"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"message\": \"Login Berhasil\"\n}"
+							"body": "{\n    \"code\": 200,\n    \"data\": {\n        \"email\": \"admin@123.com\",\n        \"id\": 9,\n        \"name\": \"cathez\",\n        \"token\": \"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwibmFtZSI6ImNhdGhleiIsInJvbGUiOiJhZG1pbiIsImlzcyI6ImdvbGFuZyIsImV4cCI6MTY4NjYzNTg3OH0.uddoP_MaXDJi2ue44gHswj74kNiQrU5cggAPHxA33fM\"\n    },\n    \"message\": \"Login Berhasil\",\n    \"status\": \"Success\"\n}"
+						},
+						{
+							"name": "LoginGagal",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"cathezhg\",\r\n    \"password\" : \"123456\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-server}}/login",
+									"host": [
+										"{{api-server}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 13 Jun 2023 04:28:53 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "71"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 401,\n    \"message\": \"Username Atau Password Salah\",\n    \"status\": \"Failed\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "REGISTER",
+			"item": [
+				{
+					"name": "create-data",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "create-data",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"vincenn\",\r\n    \"password\" : \"123456\",\r\n    \"phone\" : \"08648973257\",\r\n    \"email\" : \"@gmail.com\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-server}}/create-user",
+									"host": [
+										"{{api-server}}"
+									],
+									"path": [
+										"create-user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 13 Jun 2023 04:34:25 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "214"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"data\": {\n        \"id\": 15,\n        \"name\": \"vincenn\",\n        \"phone\": \"08648973257\",\n        \"role\": \"\",\n        \"password\": \"$2a$10$3fPg6f5dMdJ7zvdMa2.dHORM9ZglIKQzmVJ5EUh38XZsINULOV05C\",\n        \"email\": \"@gmail.com\"\n    },\n    \"error\": null,\n    \"message\": \"Success Created\"\n}"
 						}
 					]
 				}
