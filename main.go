@@ -246,7 +246,8 @@ func main() {
 		Admin.PUT("/data-user/:id", EditDataUser)
 		Admin.DELETE("/data-user/:id", DeleteDataUser)
 
-		Admin.GET("/get-transaction/:id/:end", GetAllTransactions)
+		Admin.GET("/get-transaction/:id", GetAllTransactions)
+		Admin.GET("/get-transaction-page/:id/:end", GetAllTransactions)
 		Admin.GET("/get-transactions/:status", GetTransactionByStatus)
 		Admin.GET("/logout", Logout)
 	}
