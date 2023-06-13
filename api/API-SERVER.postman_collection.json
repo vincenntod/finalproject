@@ -1,0 +1,712 @@
+{
+	"info": {
+		"_postman_id": "65436146-0544-404d-8e85-851b6a3a7823",
+		"name": "API-SERVER",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25237356",
+		"_collection_link": "https://warped-shuttle-85599.postman.co/workspace/New-Team-Workspace~ea781e23-6307-4ab5-8a45-7ad2da62621c/collection/25237356-65436146-0544-404d-8e85-851b6a3a7823?action=share&creator=25237356&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "ACCOUNT",
+			"item": [
+				{
+					"name": "getDataUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-server}}/api/data-user",
+							"host": [
+								"{{api-server}}"
+							],
+							"path": [
+								"api",
+								"data-user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getDataUser",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api-server}}/api/data-user",
+									"host": [
+										"{{api-server}}"
+									],
+									"path": [
+										"api",
+										"data-user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 11 Jun 2023 12:53:13 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "416"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": [\n        {\n            \"id\": 1,\n            \"username\": \"Vincencius Maxwell\",\n            \"phone\": \"85155356708\",\n            \"role\": \"admin\",\n            \"password\": \"123456\"\n        },\n        {\n            \"id\": 2,\n            \"username\": \"Zefanya Irene\",\n            \"phone\": \"085155356708\",\n            \"role\": \"superadmin\",\n            \"password\": \"$2a$10$hQtPyCzzK/VNEDDqrQnFLONIIpoLPi2Y1rtJg4UD.YoUZz9gUm2Ki\"\n        },\n        {\n            \"id\": 7,\n            \"username\": \"ZefanyaIrena\",\n            \"phone\": \"085155356708\",\n            \"role\": \"superadmin\",\n            \"password\": \"$2a$10$UeTo.KXOUivOv6.GW68zHOM2xZLQ2OX8H7non9Xjv0owfRgS6k4T2\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "getDataUserById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-server}}/api/data-user/1",
+							"host": [
+								"{{api-server}}"
+							],
+							"path": [
+								"api",
+								"data-user",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getDataUserById",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api-server}}/api/data-user/1",
+									"host": [
+										"{{api-server}}"
+									],
+									"path": [
+										"api",
+										"data-user",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 11 Jun 2023 12:53:42 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "109"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": {\n        \"id\": 1,\n        \"username\": \"Vincencius Maxwell\",\n        \"phone\": \"85155356708\",\n        \"role\": \"admin\",\n        \"password\": \"123456\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "deleteDataUser",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api-server}}/api/data-user/7",
+							"host": [
+								"{{api-server}}"
+							],
+							"path": [
+								"api",
+								"data-user",
+								"7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "deleteDataUser",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{api-server}}/api/data-user/7",
+									"host": [
+										"{{api-server}}"
+									],
+									"path": [
+										"api",
+										"data-user",
+										"7"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 11 Jun 2023 13:04:11 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "28"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Delete Success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "addDataUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{api-server}}/api/create-user",
+							"host": [
+								"{{api-server}}"
+							],
+							"path": [
+								"api",
+								"create-user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "addDataUser",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"caroline\",\r\n    \"phone\": \"085155356788\",\r\n    \"role\": \"admin\",\r\n    \"password\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-server}}/api/create-user",
+									"host": [
+										"{{api-server}}"
+									],
+									"path": [
+										"api",
+										"create-user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 11 Jun 2023 13:00:08 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "201"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"data\": {\n        \"id\": 8,\n        \"username\": \"caroline\",\n        \"phone\": \"085155356788\",\n        \"role\": \"admin\",\n        \"password\": \"$2a$10$xyV1D54lgZMgj0DP4BTlb.UsI6MzSFYkFMjn7cP6MFeSQUFJp3zim\"\n    },\n    \"err\": null,\n    \"message\": \"Success Created\"\n}"
+						}
+					]
+				},
+				{
+					"name": "editDataUser",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"ZefanyaIrenaGerty\",\r\n    \"phone\": \"085155356708\",\r\n    \"role\": \"superadmin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-server}}/api/data-user/7",
+							"host": [
+								"{{api-server}}"
+							],
+							"path": [
+								"api",
+								"data-user",
+								"7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "editDataUser",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"ZefanyaIrenaGerty\",\r\n    \"phone\": \"085155356708\",\r\n    \"role\": \"superadmin\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-server}}/api/data-user/7",
+									"host": [
+										"{{api-server}}"
+									],
+									"path": [
+										"api",
+										"data-user",
+										"7"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 11 Jun 2023 12:57:36 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "153"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"data\": {\n        \"id\": 0,\n        \"username\": \"ZefanyaIrenaGerty\",\n        \"phone\": \"085155356708\",\n        \"role\": \"superadmin\",\n        \"password\": \"\"\n    },\n    \"err\": \"\",\n    \"message\": \"Success Updated\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "TRANSACTION",
+			"item": [
+				{
+					"name": "getAllTransaction",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-server}}/api/get-transactions/14",
+							"host": [
+								"{{api-server}}"
+							],
+							"path": [
+								"api",
+								"get-transactions",
+								"14"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getAllTransaction",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api-server}}/api/get-transactions/1",
+									"host": [
+										"{{api-server}}"
+									],
+									"path": [
+										"api",
+										"get-transactions",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 12 Jun 2023 08:55:33 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1118"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": [\n        {\n            \"id\": 1,\n            \"oda_number\": 2,\n            \"status\": \"success\",\n            \"price\": 35200000,\n            \"total_data\": 43,\n            \"created_at\": \"2023-06-12T00:00:00Z\"\n        },\n        {\n            \"id\": 2,\n            \"oda_number\": 2,\n            \"status\": \"failed\",\n            \"price\": 35200000,\n            \"total_data\": 55,\n            \"created_at\": \"2023-06-12T00:00:00Z\"\n        },\n        {\n            \"id\": 3,\n            \"oda_number\": 4,\n            \"status\": \"pending\",\n            \"price\": 15200000,\n            \"total_data\": 9,\n            \"created_at\": \"2023-06-12T00:00:00Z\"\n        },\n        {\n            \"id\": 4,\n            \"oda_number\": 2,\n            \"status\": \"pending\",\n            \"price\": 455545,\n            \"total_data\": 66,\n            \"created_at\": \"2023-06-12T00:00:00Z\"\n        },\n        {\n            \"id\": 5,\n            \"oda_number\": 2,\n            \"status\": \"pending\",\n            \"price\": 455545,\n            \"total_data\": 66,\n            \"created_at\": \"2023-06-12T00:00:00Z\"\n        },\n        {\n            \"id\": 6,\n            \"oda_number\": 2,\n            \"status\": \"pending\",\n            \"price\": 455545,\n            \"total_data\": 66,\n            \"created_at\": \"2023-06-12T00:00:00Z\"\n        },\n        {\n            \"id\": 7,\n            \"oda_number\": 2,\n            \"status\": \"pending\",\n            \"price\": 455545,\n            \"total_data\": 66,\n            \"created_at\": \"2023-06-12T00:00:00Z\"\n        },\n        {\n            \"id\": 8,\n            \"oda_number\": 2,\n            \"status\": \"pending\",\n            \"price\": 455545,\n            \"total_data\": 66,\n            \"created_at\": \"2023-06-12T00:00:00Z\"\n        },\n        {\n            \"id\": 9,\n            \"oda_number\": 2,\n            \"status\": \"pending\",\n            \"price\": 455545,\n            \"total_data\": 66,\n            \"created_at\": \"2023-06-12T00:00:00Z\"\n        },\n        {\n            \"id\": 10,\n            \"oda_number\": 2,\n            \"status\": \"pending\",\n            \"price\": 455545,\n            \"total_data\": 66,\n            \"created_at\": \"2023-06-12T00:00:00Z\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "getAllTransaction",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api-server}}/api/get-transactions/2",
+									"host": [
+										"{{api-server}}"
+									],
+									"path": [
+										"api",
+										"get-transactions",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 12 Jun 2023 08:56:26 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1123"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": [\n        {\n            \"id\": 11,\n            \"oda_number\": 2,\n            \"status\": \"pending\",\n            \"price\": 455545,\n            \"total_data\": 66,\n            \"created_at\": \"2023-06-12T00:00:00Z\"\n        },\n        {\n            \"id\": 12,\n            \"oda_number\": 2,\n            \"status\": \"pending\",\n            \"price\": 455545,\n            \"total_data\": 66,\n            \"created_at\": \"2023-06-12T00:00:00Z\"\n        },\n        {\n            \"id\": 13,\n            \"oda_number\": 2,\n            \"status\": \"pending\",\n            \"price\": 455545,\n            \"total_data\": 66,\n            \"created_at\": \"2023-06-12T00:00:00Z\"\n        },\n        {\n            \"id\": 14,\n            \"oda_number\": 2,\n            \"status\": \"pending\",\n            \"price\": 455545,\n            \"total_data\": 66,\n            \"created_at\": \"2023-06-12T00:00:00Z\"\n        },\n        {\n            \"id\": 15,\n            \"oda_number\": 2,\n            \"status\": \"pending\",\n            \"price\": 455545,\n            \"total_data\": 66,\n            \"created_at\": \"2023-06-12T00:00:00Z\"\n        },\n        {\n            \"id\": 16,\n            \"oda_number\": 2,\n            \"status\": \"pending\",\n            \"price\": 455545,\n            \"total_data\": 66,\n            \"created_at\": \"2023-06-12T00:00:00Z\"\n        },\n        {\n            \"id\": 17,\n            \"oda_number\": 2,\n            \"status\": \"pending\",\n            \"price\": 455545,\n            \"total_data\": 66,\n            \"created_at\": \"2023-06-12T00:00:00Z\"\n        },\n        {\n            \"id\": 18,\n            \"oda_number\": 2,\n            \"status\": \"pending\",\n            \"price\": 455545,\n            \"total_data\": 66,\n            \"created_at\": \"2023-06-12T00:00:00Z\"\n        },\n        {\n            \"id\": 19,\n            \"oda_number\": 2,\n            \"status\": \"pending\",\n            \"price\": 455545,\n            \"total_data\": 66,\n            \"created_at\": \"2023-06-12T00:00:00Z\"\n        },\n        {\n            \"id\": 20,\n            \"oda_number\": 2,\n            \"status\": \"pending\",\n            \"price\": 455545,\n            \"total_data\": 66,\n            \"created_at\": \"2023-06-12T00:00:00Z\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "getAllTransaction",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api-server}}/api/get-transactions/14",
+									"host": [
+										"{{api-server}}"
+									],
+									"path": [
+										"api",
+										"get-transactions",
+										"14"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 12 Jun 2023 08:56:49 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "797"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": [\n        {\n            \"id\": 131,\n            \"oda_number\": 2,\n            \"status\": \"pending\",\n            \"price\": 455545,\n            \"total_data\": 66,\n            \"created_at\": \"2023-06-12T00:00:00Z\"\n        },\n        {\n            \"id\": 132,\n            \"oda_number\": 2,\n            \"status\": \"pending\",\n            \"price\": 455545,\n            \"total_data\": 66,\n            \"created_at\": \"2023-06-12T00:00:00Z\"\n        },\n        {\n            \"id\": 133,\n            \"oda_number\": 2,\n            \"status\": \"pending\",\n            \"price\": 455545,\n            \"total_data\": 66,\n            \"created_at\": \"2023-06-12T00:00:00Z\"\n        },\n        {\n            \"id\": 134,\n            \"oda_number\": 2,\n            \"status\": \"pending\",\n            \"price\": 455545,\n            \"total_data\": 66,\n            \"created_at\": \"2023-06-12T00:00:00Z\"\n        },\n        {\n            \"id\": 135,\n            \"oda_number\": 2,\n            \"status\": \"pending\",\n            \"price\": 455545,\n            \"total_data\": 66,\n            \"created_at\": \"2023-06-12T00:00:00Z\"\n        },\n        {\n            \"id\": 136,\n            \"oda_number\": 2,\n            \"status\": \"pending\",\n            \"price\": 455545,\n            \"total_data\": 66,\n            \"created_at\": \"2023-06-12T00:00:00Z\"\n        },\n        {\n            \"id\": 137,\n            \"oda_number\": 2,\n            \"status\": \"pending\",\n            \"price\": 455545,\n            \"total_data\": 66,\n            \"created_at\": \"2023-06-12T00:00:00Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "getTransactionByStatus",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-server}}/api/get-transactions/failed",
+							"host": [
+								"{{api-server}}"
+							],
+							"path": [
+								"api",
+								"get-transactions",
+								"failed"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getTransactionBySuccess",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api-server}}/api/get-transactions/success",
+									"host": [
+										"{{api-server}}"
+									],
+									"path": [
+										"api",
+										"get-transactions",
+										"success"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 12 Jun 2023 04:45:45 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "125"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": [\n        {\n            \"id\": 1,\n            \"oda_number\": 2,\n            \"status\": \"success\",\n            \"price\": 35200000,\n            \"total_data\": 43,\n            \"created_at\": \"2023-06-12T00:00:00Z\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "getTransactionByPending",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api-server}}/api/get-transactions/pending",
+									"host": [
+										"{{api-server}}"
+									],
+									"path": [
+										"api",
+										"get-transactions",
+										"pending"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 12 Jun 2023 04:46:03 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "124"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": [\n        {\n            \"id\": 3,\n            \"oda_number\": 4,\n            \"status\": \"pending\",\n            \"price\": 15200000,\n            \"total_data\": 9,\n            \"created_at\": \"2023-06-12T00:00:00Z\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "getTransactionByFailed",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api-server}}/api/get-transactions/failed",
+									"host": [
+										"{{api-server}}"
+									],
+									"path": [
+										"api",
+										"get-transactions",
+										"failed"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 12 Jun 2023 04:46:25 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "124"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": [\n        {\n            \"id\": 2,\n            \"oda_number\": 2,\n            \"status\": \"failed\",\n            \"price\": 35200000,\n            \"total_data\": 55,\n            \"created_at\": \"2023-06-12T00:00:00Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "ExportCSV",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AUTH",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"cathez\",\r\n    \"password\" : \"123456\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-server}}/login",
+							"host": [
+								"{{api-server}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"cathez\",\r\n    \"password\" : \"123456\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-server}}/login",
+									"host": [
+										"{{api-server}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "gin_cookie=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwibmFtZSI6ImNhdGhleiIsInJvbGUiOiJhZG1pbiIsImlzcyI6ImdvbGFuZyIsImV4cCI6MTY4NjU0NzE1OX0.NwoIKnGY9cP54VImZ8GGEM2wQrJIzExUebQ9cGb1Ch4; Path=/; Domain=localhost; Max-Age=3600; HttpOnly"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 12 Jun 2023 04:49:19 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "28"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Login Berhasil\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api-server",
+			"value": "https://2d876db7-7486-40dc-8f9a-c5798fd930e6.mock.pstmn.io",
+			"type": "string"
+		},
+		{
+			"key": "api-server",
+			"value": "localhost:8080",
+			"type": "string",
+			"disabled": true
+		}
+	]
+}

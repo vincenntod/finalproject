@@ -19,6 +19,7 @@ type Account struct {
 	Phone    string `json:"phone"`
 	Role     string `json:"role"`
 	Password string `json:"password"`
+	Email    string `json:"email"`
 }
 
 var JWT_KEY = []byte("dbceria")
@@ -116,8 +117,7 @@ func CreateAccount(c *gin.Context) {
 		c.JSON(500, gin.H{
 			"code":    500,
 			"message": "Internal Server Error",
-			"error":   err,
-			"data":    &account})
+			"error":   err})
 		return
 	}
 	HashPassword, err := bcrypt.GenerateFromPassword([]byte((account.Password)), bcrypt.DefaultCost)
@@ -125,8 +125,7 @@ func CreateAccount(c *gin.Context) {
 		c.JSON(400, gin.H{
 			"code":    400,
 			"message": "Bad Request",
-			"error":   err,
-			"data":    &account})
+			"error":   err})
 		return
 	}
 	account.Password = string(HashPassword)
@@ -176,14 +175,22 @@ func Login(c *gin.Context) {
 	}
 	var getAcount Account
 	if err := DB.Where("name = ?", account.Name).First(&getAcount).Error; err != nil {
-		c.JSON(401, gin.H{"message": "Username salah"})
+		c.JSON(401, gin.H{
+			"code":    401,
+			"status":  "Failed",
+			"message": "Username Atau Password Salah",
+		})
 		return
 	}
 	if err := bcrypt.CompareHashAndPassword([]byte(getAcount.Password), []byte(account.Password)); err != nil {
-		c.JSON(401, gin.H{"message": "Password salah"})
+		c.JSON(401, gin.H{
+			"code":    401,
+			"status":  "Failed",
+			"message": "Username Atau Password Salah",
+		})
 		return
 	}
-	expiredTime := time.Now().Add(time.Minute * 30)
+	expiredTime := time.Now().Add(time.Minute * 90)
 	claims := &JWT{
 		Id:   getAcount.Id,
 		Name: getAcount.Name,
@@ -199,7 +206,17 @@ func Login(c *gin.Context) {
 		c.JSON(401, gin.H{"message": "Login Error"})
 	}
 	c.SetCookie("gin_cookie", tokenGenerate, 3600, "/", "localhost", false, true)
-	c.JSON(200, gin.H{"message": "Login Berhasil"})
+	c.JSON(200, gin.H{
+		"code": 200,
+		"data": gin.H{
+			"token": "Bearer " + tokenGenerate,
+			"id":    getAcount.Id,
+			"name":  getAcount.Name,
+			"email": getAcount.Email,
+		},
+		"status":  "Success",
+		"message": "Login Berhasil",
+	})
 }
 func Logout(c *gin.Context) {
 	c.SetCookie("gin_cookie", "", -1, "/", "localhost", false, true)
