@@ -166,7 +166,12 @@ func GetAllTransactions(c *gin.Context) {
 		c.JSON(500, gin.H{"message": "Error"})
 		return
 	}
-	c.JSON(200, gin.H{"message": &transactions})
+	c.JSON(200, gin.H{
+		"code":    200,
+		"message": "Success",
+		"error":   "Tidak Ada Error",
+		"data": &transactions,
+	})
 }
 
 func GetAllTransactionsByParam(c *gin.Context) {
@@ -187,7 +192,13 @@ func GetAllTransactionsByParam(c *gin.Context) {
 		c.JSON(500, gin.H{"message": "Error"})
 		return
 	}
-	c.JSON(200, gin.H{"message": &transactions, "Jumlah All Page": count})
+	c.JSON(200, gin.H{
+		"code":    200,
+		"message": "Success",
+		"error":   "Tidak Ada Error",
+		"data": &transactions,
+		"Jumlah All Page": count,
+	})
 }
 func GetTransactionByStatus(c *gin.Context) {
 	var transactions []Transaction
@@ -197,7 +208,12 @@ func GetTransactionByStatus(c *gin.Context) {
 		return
 
 	}
-	c.JSON(200, gin.H{"message": &transactions})
+	c.JSON(200, gin.H{
+		"code":    200,
+		"message": "Success",
+		"error":   "Tidak Ada Error",
+		"data": &transactions,
+	})
 }
 
 func Login(c *gin.Context) {
