@@ -1,4 +1,6 @@
 # finalproject - BE Ceria
 
-## GetTransactionByStatus
-## GetTransactionAll
+ 
+GetTransactionByStatus
+
+GetTransactionAll
